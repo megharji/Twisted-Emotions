@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>Twisted Emotions</title>
+    <link rel="icon" href="https://images.unsplash.com/photo-1530910417612-701222d79f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGhvdWdodHN8ZW58MHx8MHx8fDA%3D">
+    <link rel="stylesheet" href="/stylesheets/update.css">
+
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/profile">Profile</a>
+        </nav>
+
+        <div class="container">
+          <form class="form" action="/update-post/<%= user._id%>" method="post">
+            <div class="form_front">
+              <div class="form_details">Update Your Writings</div>
+              <input class="input" type="text" name="title" placeholder="Title Name" value="<%=user.title%>">
+              <textarea class="input1" id="quote"  name="quote" rows="9" placeholder="Write Quote Here" ><%= user.quote%></textarea>
+              <label for="categories">What Are You Writings</label>
+              <select class="input" name="categories"  value="<%= user.categories%>">
+                  <option <%= user.categories === "Quote" ? "selected" : ""%> value="Quote" >Quote</option>
+                  <option <%= user.categories==="Shayari" ?  "selected" : ""%> value="Shayari" >Shayari</option>
+                  <option <%= user.categories==="Poem" ?  "selected" : ""%> value="Poem" >Poem</option>
+                  <option <%= user.categories==="Blog" ?  "selected" : ""%> value="Blog" >Blog</option>
+                  <option <%= user.categories==="Short Story" ?  "selected" : ""%> value="Short Story">Short Story</option>
+                  <option <%= user.categories==="Artical" ?  "selected" : ""%> value="Artical">Artical</option>
+              </select>
+
+              <label for="color">Choose A Border Color:</label>
+              <center><input class="input2" type="color" id="color" name="color" value="<%=user.color%>" required></center>
+              <center><div class="color-preview input3" id="colorPreview"></div></center>
+        
+              <button class="btn">Update Writing</button>
+            </div>
+          </form>
+        </div>
+    </div>
+
+      <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const colorInput = document.getElementById('color');
+        const colorPreview = document.getElementById('colorPreview');
+
+        // Set initial color preview
+        colorPreview.style.backgroundColor = colorInput.value;
+
+        // Update color preview when input changes
+        colorInput.addEventListener('input', function () {
+          colorPreview.style.backgroundColor = colorInput.value;
+        });
+      });
+
+      </script>
+</body>
+</html>

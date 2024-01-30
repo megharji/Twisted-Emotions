@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>Twisted Emotions</title>
+    <link rel="icon" href="https://images.unsplash.com/photo-1530910417612-701222d79f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGhvdWdodHN8ZW58MHx8MHx8fDA%3D">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+   
+
+</head>
+<body>
+    <div class="main">
+        <nav>
+          <h4><i class="ri-menu-line"></i></h4>
+          <ul>
+            <div class="dashboard">
+              <div class="dashboard1">
+                <%if(admin.image=== "https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE="){%>
+                  <div class="image"><img src="<%=admin.image%>" alt=""></div>
+                  <%}else{%>
+  
+                  <div class="image"><img src="/uploads/<%=admin.image%>" alt=""></div>          
+              <%}%>         
+                <h1><%= admin.username %></h1>
+              </div>
+              <div class="dashboard2">
+                  <a href="/"><i class="ri-home-fill"></i> Home</a>
+                  <a href="/about"><i class="ri-chat-1-fill"></i> About Us</a>
+                  <a href="/favorite"><i class="ri-heart-2-fill"></i> Favorite</a>
+                  <a href="/createquote"><i class="ri-file-list-2-fill"></i> Create Writings</a>
+                  <a href="/reset"><i class="ri-refresh-fill"></i> Reset Password</a>
+                  <a href="/signout"><i class="ri-login-box-fill"></i> Signout</a>
+              </div>
+            </div> 
+          </ul>
+        </nav>
+
+    
+
+    <div class="pg1">
+      <h2>Search for Writings</h2>
+          <form class="form" action="/profilefilter">
+              <div class="pg1main">
+
+                  <select class="input"  name="key" id="">
+                      <option value="filter">Select the filter</option>
+                      <option value="categories">Categories</option>               
+                      <option value="title">Title</option>
+                      
+                  </select>
+                  <input class="input" type="text" name="value" placeholder="Enter search term" />
+              </div>
+              <div class="buttons">
+                  <button>Search</button>
+                  <a href="/profile">Clear</a>
+              </div>
+              
+
+          </form>
+    </div>
+
+  </div>
+
+    <div class="pg2">
+      <h1>Your Writings</h1>
+      <div class="pg2main">
+        <% if (motivations.length ===0 ){%>
+          <h1>No Writings Created</h1>
+        <%}%>
+
+          <% motivations.forEach(function(motiv, idx){%>
+            <div class="card" style=" border: 15px solid <%= motiv.color%>;">
+              <div class="card-content">
+                <center><h2><%=motiv.categories%></h2></center>  
+                <br>
+                  <center><h1><%=motiv.title%></h1></center>
+
+                <% let datee = String(new Date(motiv.createdAt)) %>
+                <% let datee1 = datee.split(" ")%>
+                <center><h3><%=datee1[2]%> <%=datee1[1]%> <%=datee1[3]%> </h3></center>
+                <br>
+                <center><a href="/favorite-post/<%= motiv._id%>"><i class="ri-heart-fill <%=motiv.like%>"></i></a></center>
+                <br>
+                <div class="cardbutton">
+                  <a class="card-button1" href="/delete-post/<%= motiv._id%>">Delete</a>
+                  <a class="card-button2" href="/update-post/<%= motiv._id%>">Edit</a>
+                </div>
+
+                <a class="card-button" href="/showthoughts/<%= motiv._id%>">Show the <%= motiv.categories%></a>
+
+              </div>
+            </div>
+            <br>
+          <%})%>
+
+        
+      </div>
+    </div>
+        
+    
+
+
+      <script>
+
+
+
+        var dashboard =  document.querySelector(".dashboard")
+        var icon =  document.querySelector("h4")
+        var check = 0
+
+        icon.addEventListener("click", function(){
+            if(check == 0){
+                dashboard.style.display = "flex"
+                icon.innerHTML =`<i class="ri-close-fill"></i>`                
+                check = 1
+            }else{
+                dashboard.style.display = "none"
+                icon.innerHTML =`<i class="ri-menu-line"></i>`
+                check = 0
+            }
+            
+        })
+
+   </script>
+</body>
+</html>

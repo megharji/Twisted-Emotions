@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://images.unsplash.com/photo-1530910417612-701222d79f2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGhvdWdodHN8ZW58MHx8MHx8fDA%3D">
+    <title>Twisted Emotions</title>
+    <link rel="stylesheet" href="/stylesheets/about.css">
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+
+        <div class="pg1">
+          <h1>About Us</h1>
+          <p>
+            Welcome to Twisted Emotions, a unique platform designed to unleash the power of your thoughts and creativity. 
+            Here, we believe that everyone has a story to tell, a poem to share, or a thought that deserves to be expressed. 
+            Our platform is your canvas, providing a space where your imagination knows no bounds.
+            At Twisted Emotions, we empower you to write freely, whether it's poetry that stirs your soul, Shayari that 
+            resonates with your emotions, quotes that inspire, or motivational thoughts that fuel your spirit. This is your 
+            sanctuary to pour your heart out, express your creativity, and capture your thoughts for eternity
+            Step into the world of Twisted Emotions, where every word finds a home and every thought takes flight.
+            Unleash the poet within you, create verses that dance with emotion, and share your unique perspective with the world.
+            We understand that the journey of a thousand words begins with a single sentence. Begin your writing odyssey here, where 
+            every word finds its purpose and every writer finds a community. Your story is waiting to be told – start writing it today!
+          </p>
+          
+          <% if(!admin) { %>
+  
+            <a class="btn" href="/register">Register</a>
+            <% } else { %>
+              <a class="btn" href="/profile">Profile</a>
+            <% }%>
+           
+        </div>
+      </div>
+</body>
+</html>
