@@ -265,7 +265,7 @@ select>option{
 
 .card{
   width: 280px;
-  height: 380px;
+  /* height: 380px; */
   margin-bottom: 9%;
   flex-wrap: wrap;
   border-radius: 20px;
@@ -275,9 +275,8 @@ select>option{
 }
 
 .card-content{
-  margin-bottom: 5%;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   padding: 20px;
   background-color: #421d209e;
   display: flex;
@@ -336,9 +335,15 @@ select>option{
   text-align: center;
  }
 
- .cardbutton{
+ .card-button3{
+  margin-top: 10%;
   width: 100%;
-  height: 10%;
+  text-decoration: none;
+  background-color: #884c51;
+  padding: .5rem 2rem;
+  text-align: center;
+  border: 3px solid white;
+  border-radius: 1rem;
  }
  
  .card-button1,.card-button2 {
@@ -348,7 +353,6 @@ select>option{
   padding: .5rem 2rem;
   border: 3px solid white;
   border-radius: 1rem;
-
 }
 
 

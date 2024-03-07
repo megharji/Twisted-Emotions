@@ -39,7 +39,7 @@ nav>a{
 }
 
 .container>h1{
-    font-size: 3vmax;
+    font-size: 2.5vmax;
     font-weight: 900;
     margin-bottom: 2%;
     text-transform: uppercase;
@@ -54,6 +54,7 @@ nav>a{
 }
 
 .container>h3{
+    text-align: center;
     font-size: 1.8vmax;
     font-weight: 900;
     width: 60%;
