@@ -179,13 +179,23 @@ text-decoration: none;
   gap: 5%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  
 }
 
 .main1>h1{
   text-align: center;
+  margin-top: 10%;
+  color: white;
+  font-size: 5vmax;
+  text-transform: capitalize;
+  margin-bottom: 10%;
+}
+
+.main1>h2{
+  text-align: center;
   width: 90%;
   color: white;
+  font-size: 2.5vmax;
 }
 
 
